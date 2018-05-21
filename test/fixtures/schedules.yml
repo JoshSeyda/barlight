@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  dow: MyString
+  clock_in: 2018-05-21 17:03:26
+  clock_out: 2018-05-21
+  light_on: false
+  venue: one
+  tender: one
+
+two:
+  dow: MyString
+  clock_in: 2018-05-21 17:03:26
+  clock_out: 2018-05-21
+  light_on: false
+  venue: two
+  tender: two
