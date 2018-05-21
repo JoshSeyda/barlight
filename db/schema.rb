@@ -10,10 +10,52 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_21_165545) do
+ActiveRecord::Schema.define(version: 2018_05_21_220254) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "images", force: :cascade do |t|
+    t.text "url"
+    t.string "imageable_type"
+    t.bigint "imageable_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["imageable_type", "imageable_id"], name: "index_images_on_imageable_type_and_imageable_id"
+  end
+
+  create_table "locations", force: :cascade do |t|
+    t.decimal "latitude"
+    t.decimal "longitude"
+    t.string "address"
+    t.string "locatable_type"
+    t.bigint "locatable_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["locatable_type", "locatable_id"], name: "index_locations_on_locatable_type_and_locatable_id"
+  end
+
+  create_table "regulars", force: :cascade do |t|
+    t.bigint "tender_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["tender_id"], name: "index_regulars_on_tender_id"
+    t.index ["user_id"], name: "index_regulars_on_user_id"
+  end
+
+  create_table "schedules", force: :cascade do |t|
+    t.string "dow", default: [], array: true
+    t.datetime "clock_in"
+    t.date "clock_out"
+    t.boolean "light_on"
+    t.bigint "venue_id"
+    t.bigint "tender_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["tender_id"], name: "index_schedules_on_tender_id"
+    t.index ["venue_id"], name: "index_schedules_on_venue_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -36,4 +78,14 @@ ActiveRecord::Schema.define(version: 2018_05_21_165545) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "venues", force: :cascade do |t|
+    t.string "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "regulars", "users"
+  add_foreign_key "regulars", "users", column: "tender_id"
+  add_foreign_key "schedules", "users", column: "tender_id"
+  add_foreign_key "schedules", "venues"
 end
