@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  url: MyText
+  imagable: one
+  imagable_type: Imagable
+
+two:
+  url: MyText
+  imagable: two
+  imagable_type: Imagable

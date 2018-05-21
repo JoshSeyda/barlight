@@ -1,0 +1,2 @@
+class Tender < < User
+end
