@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 2018_05_21_220254) do
   end
 
   create_table "schedules", force: :cascade do |t|
-    t.string "dow", default: [], array: true
+    t.integer "dow", default: [], array: true
     t.datetime "clock_in"
     t.date "clock_out"
     t.boolean "light_on"
