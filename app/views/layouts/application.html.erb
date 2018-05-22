@@ -13,7 +13,10 @@
     <!-- devise stuff: -->
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
+          <div class='container'>
       <%= render 'shared/calendar' %>
-    <%= yield %>
+        <%= yield %>
+        <div id='remote_container'></div>
+      </div>
   </body>
 </html>

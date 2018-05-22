@@ -26,6 +26,7 @@ initialize_calendar = function() {
       },
 
       eventDrop: function(event, delta, revertFunc) {
+        console.log("event drop is getting hit!");
         event_data = { 
           event: {
             id: event.id,

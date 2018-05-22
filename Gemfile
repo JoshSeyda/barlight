@@ -43,11 +43,10 @@ gem 'carrierwave', '~> 1.0'
 gem 'file_validators'
 gem "fog-aws"
 gem 'aws-sdk-s3', '~> 1'
-gem 'fullcalendar-rails'
 gem 'momentjs-rails'
 gem 'daterangepicker-rails'
-gem 'bootstrap', '~> 4.1.1'
 gem 'jquery-rails'
+gem 'bootstrap', '~> 4.1.1'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
