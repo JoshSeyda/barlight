@@ -5,5 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   has_many :regulars
   has_many :tenders, through: :regulars
-  
+  has_one :location, as: :locatable
+  has_many :images, as: :imageable
 end

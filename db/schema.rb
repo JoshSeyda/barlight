@@ -45,9 +45,11 @@ ActiveRecord::Schema.define(version: 2018_05_21_220254) do
   end
 
   create_table "schedules", force: :cascade do |t|
-    t.string "dow", default: [], array: true
-    t.datetime "clock_in"
-    t.date "clock_out"
+    t.integer "dow", default: [], array: true
+    t.time "clock_in"
+    t.time "clock_out"
+    t.date "start_date"
+    t.date "end_date"
     t.boolean "light_on"
     t.bigint "venue_id"
     t.bigint "tender_id"
