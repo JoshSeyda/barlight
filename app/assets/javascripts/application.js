@@ -13,4 +13,14 @@
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
+//= require jquery
+//= require jquery_ujs
+//= require moment 
+//= require daterangepicker
+//= require fullcalendar
+//= require full_calendar
+//= require date_range_picker
 //= require_tree .
+
+
+$('#calendar').fullCalendar({});

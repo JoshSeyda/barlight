@@ -1,5 +1,7 @@
 {
   "name": "Barlight",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "fullcalendar": "^3.9.0"
+  }
 }
