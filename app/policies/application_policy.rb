@@ -38,6 +38,10 @@ class ApplicationPolicy
     Pundit.policy_scope!(user, record.class)
   end
 
+  def tender?
+    user.has_role?(:tender)
+  end
+
   class Scope
     attr_reader :user, :scope
 
