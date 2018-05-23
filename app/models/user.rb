@@ -9,9 +9,6 @@ class User < ApplicationRecord
   has_one :location, as: :locatable
   has_many :images, as: :imageable
 
-  has_many :user_roles
-  has_many :roles, through: :user_roles
-
   has_many :venues, through: :schedules 
   has_many :schedules
 
