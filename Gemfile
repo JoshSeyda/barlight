@@ -33,9 +33,24 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+# Alex
 gem 'devise'
 gem 'geocoder'
 gem 'figaro'
+# Josh the load order is important, carrierwave_direct has to be after fog-aws
+gem 'carrierwave', '~> 1.0'
+gem 'file_validators'
+gem "fog-aws"
+gem 'carrierwave_direct'
+gem 'aws-sdk-s3', '~> 1'
+gem 'momentjs-rails'
+gem 'daterangepicker-rails'
+gem 'jquery-rails'
+# gem 'bootstrap', '~> 4.1.1'
+# gem 'bootstrap-sprockets'
+gem 'bootstrap-sass'
+gem 'simple_form'
+gem 'ice_cube'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
