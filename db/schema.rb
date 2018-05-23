@@ -10,12 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_22_184226) do
+ActiveRecord::Schema.define(version: 2018_05_23_145755) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "events", force: :cascade do |t|
+    t.string "dow", default: [], array: true
     t.string "title"
     t.datetime "start"
     t.datetime "end"
@@ -42,6 +43,15 @@ ActiveRecord::Schema.define(version: 2018_05_22_184226) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["locatable_type", "locatable_id"], name: "index_locations_on_locatable_type_and_locatable_id"
+  end
+
+  create_table "recurring_events", force: :cascade do |t|
+    t.string "title"
+    t.date "anchor"
+    t.integer "frequency"
+    t.string "color"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "regulars", force: :cascade do |t|
