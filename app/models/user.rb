@@ -29,4 +29,16 @@ class User < ApplicationRecord
   def assign_default_role
     self.add_role(:customer)
   end
+
+# Write something like this to make sure customers can only follow someone with a role other than customer?
+  # def customers=(customers)
+  #   if self.has_role?(:tender)
+  #     customers.each do |customer|
+  #       self.customers.push(customer)
+  #     end
+  #   else
+  #     errors.add(:customer, "cannot follow non-industry workers")
+  #   end 
+  # end 
+
 end
