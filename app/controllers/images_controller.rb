@@ -21,7 +21,8 @@ class ImagesController < ApplicationController
     end
    
     def create
-      @image = Image.new(image_params).save
+      @user = User.find(1)
+      @image = @user.images.create(url: params["image"]["url"])
       if @image.save
         redirect_to images_path
       else
@@ -43,7 +44,7 @@ class ImagesController < ApplicationController
     private
    
     def image_params
-        params.require(:image).permit( :url, :imageable_id)
+        params.require(:image).permit( :url)
     end
    
     def set_image

@@ -1,5 +1,5 @@
 class Image < ApplicationRecord
-  belongs_to :imagable, polymorphic: true
+  belongs_to :imageable, polymorphic: true
   serialize :image_url
     # extend CarrierWave::Mount
     # extend CarrierWaveDirect::Mount
