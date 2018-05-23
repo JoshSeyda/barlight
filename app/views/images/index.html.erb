@@ -1,0 +1,11 @@
+
+<h1>Images</h1>
+ <%# <img src='http://barlight-test.s3.amazonaws.com/uploads/0d227457-f1dc-4972-9998-0fe84334b830/20160827_071720.jpg'> %>
+<%= link_to 'Add image', new_image_path %>
+ 
+<%= render @images %>
+
+<%= direct_upload_form_for @uploader do |f| %>
+ <%= f.file_field :image %>
+ <%= f.submit %>
+<% end %>

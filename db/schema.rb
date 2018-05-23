@@ -102,7 +102,6 @@ ActiveRecord::Schema.define(version: 2018_05_23_161613) do
     t.string "handle"
     t.string "first"
     t.string "last"
-    t.string "type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true

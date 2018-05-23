@@ -1,0 +1,5 @@
+<%= link_to 'All images', images_path %>
+<h1><%= @image.id%></h1>
+<h2> <%= @image[:url] %></h2>
+<img src="http://barlight-test.s3.amazonaws.com/<%= @image.url %>" >
+<p><%= link_to 'Edit', edit_image_path(@image) %></p>

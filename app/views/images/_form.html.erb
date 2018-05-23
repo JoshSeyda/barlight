@@ -1,0 +1,15 @@
+<%= form_for image do |f| %>
+<p> KEY: <%= params[:key] %> </p>
+  <div>
+  <%#= f.hidden_field :key %>
+
+<%# <div>
+      <%= f.label :attachments %>
+<%#      <%= f.file_field :attachments, multiple: true %>
+ <%# </div> %>
+    <%= f.hidden_field( :url , :value => params[:key])%>
+    
+
+  <%= f.submit %>
+<% end %>
+<%= render 'shared/errors', object: image %>
