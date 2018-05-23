@@ -13,7 +13,11 @@
     <!-- devise stuff: -->
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-    <%= yield %>
-    <script src=<%="https://maps.googleapis.com/maps/api/js?key=#{ENV['MAPS_API_KEY']}&callback=initMap"%> async defer></script>
+    <div class='container'>
+      <%= render 'shared/calendar' %>
+      <%= yield %>
+      <div id='remote_container'></div>
+    </div>
+  <script src=<%="https://maps.googleapis.com/maps/api/js?key=#{ENV['MAPS_API_KEY']}&callback=initMap"%> async defer></script>
   </body>
 </html>
