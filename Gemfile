@@ -37,6 +37,9 @@ gem 'jbuilder', '~> 2.5'
 gem 'devise'
 gem 'geocoder'
 gem 'figaro'
+gem 'pundit'
+gem 'rolify'
+
 # Josh the load order is important, carrierwave_direct has to be after fog-aws
 gem 'carrierwave', '~> 1.0'
 gem 'file_validators'
@@ -51,6 +54,7 @@ gem 'jquery-rails'
 gem 'bootstrap-sass'
 gem 'simple_form'
 gem 'ice_cube'
+
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
