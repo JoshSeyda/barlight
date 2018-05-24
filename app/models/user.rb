@@ -11,6 +11,7 @@ class User < ApplicationRecord
 
   has_one :schedule
   delegate :venues, to: :schedule
+  delegate :shifts, to: :schedule
 
   # regular_tenders "names" the Regular join table for accessing through the tender association
   has_many :regular_tenders, foreign_key: :tender_id, class_name: "Regular" 

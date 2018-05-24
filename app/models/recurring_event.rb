@@ -1,5 +1,5 @@
 class RecurringEvent < ApplicationRecord
-  alias_attribute :server_schedule, :schedule
+  belongs_to :server_schedule, class_name: 'Schedule', foreign_key: 'schedule_id'
   has_one :user, through: :server_schedule
   belongs_to :venue
   delegate :location, to: :venue
