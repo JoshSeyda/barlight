@@ -29,6 +29,12 @@ class UsersController < ApplicationController
 
     def create
       @user = User.new(user_params)
+      puts params
+      @user.build_location(address: params["user"]['location_attributes']['address']).save
+      if params[:role] == true
+        @user.add_role :tender
+        @user.save
+      end
       @user.save
     end
 
@@ -46,6 +52,7 @@ class UsersController < ApplicationController
       end
 
       def user_params
-        params.require(:user).permit(:first, :last, :handle, :email, :password, :type)
+        # location_params = (params[:user] || {})[:location_attributes].keys
+        params.require(:user).permit(:first, :last, :handle, :email, :password, :type, :role, [location_attributes: [ :address, :id ]])
       end
 end
