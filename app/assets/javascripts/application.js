@@ -22,7 +22,6 @@
 //= require daterangepicker
 //= require full_calendar
 //= require date_range_picker
-//= require map
 //= require_tree .
 
 
