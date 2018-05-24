@@ -1,5 +1,5 @@
 class Schedule < ApplicationRecord
-  belongs_to :tender
+  belongs_to :user
   has_many :events
   has_many :recurring_events 
 

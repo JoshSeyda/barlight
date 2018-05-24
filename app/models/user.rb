@@ -9,8 +9,8 @@ class User < ApplicationRecord
   has_one :location, as: :locatable
   has_many :images, as: :imageable
 
-  has_many :venues, through: :schedules 
   has_one :schedule
+  delegate :venues, to: :schedule
 
   # regular_tenders "names" the Regular join table for accessing through the tender association
   has_many :regular_tenders, foreign_key: :tender_id, class_name: "Regular" 
