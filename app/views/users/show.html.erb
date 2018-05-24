@@ -3,7 +3,7 @@
     <script>
       function initMap() {
 
-        var nycda = new google.maps.LatLng(<%= @markers[0][:lat] %>, <%= @markers[0][:lng] %>);
+        var nycda = new google.maps.LatLng(<%= @default_location[:latitude] %>, <%= @default_location[:longitude] %>);
         var map = new google.maps.Map(document.getElementById('map'), {
           zoom: 10,
           center: nycda
@@ -13,10 +13,10 @@
         var markers = []
         <% @markers.each do |m| %>
           var mark = {
-            lat: <%= m[:lat] %>,
-            lng: <%= m[:lng] %>,
-            on: <%= m[:enabled] %>,
-            title: '<%= m[:title] %>'
+            lat: <%= m[:latitude] %>,
+            lng: <%= m[:longitude] %>,
+            on: <%= m[:light_on] %>,
+            title: '<%= m[:tender] %> @ ' + '<%= m[:venue] %>'
           };
           markers.push(mark)
         <% end %>
