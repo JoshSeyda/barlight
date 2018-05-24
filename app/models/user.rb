@@ -28,6 +28,11 @@ class User < ApplicationRecord
     self.add_role(:customer)
   end
 
+  def get_locations
+    markers = self.tenders.map {|t| t.venues }
+    return markers.flatten if markers
+  end 
+
 # Write something like this to make sure customers can only follow someone with a role other than customer?
   # def customers=(customers)
   #   if self.has_role?(:tender)
