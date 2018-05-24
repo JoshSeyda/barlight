@@ -16,13 +16,17 @@ ActiveRecord::Schema.define(version: 2018_05_23_161613) do
   enable_extension "plpgsql"
 
   create_table "events", force: :cascade do |t|
-    t.string "dow", default: [], array: true
     t.string "title"
     t.datetime "start"
     t.datetime "end"
     t.string "color"
+    t.boolean "light_on"
+    t.bigint "schedule_id"
+    t.bigint "venue_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["schedule_id"], name: "index_events_on_schedule_id"
+    t.index ["venue_id"], name: "index_events_on_venue_id"
   end
 
   create_table "images", force: :cascade do |t|
@@ -50,8 +54,13 @@ ActiveRecord::Schema.define(version: 2018_05_23_161613) do
     t.date "anchor"
     t.integer "frequency"
     t.string "color"
+    t.boolean "light_on"
+    t.bigint "schedule_id"
+    t.bigint "venue_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["schedule_id"], name: "index_recurring_events_on_schedule_id"
+    t.index ["venue_id"], name: "index_recurring_events_on_venue_id"
   end
 
   create_table "regulars", force: :cascade do |t|
@@ -74,18 +83,10 @@ ActiveRecord::Schema.define(version: 2018_05_23_161613) do
   end
 
   create_table "schedules", force: :cascade do |t|
-    t.integer "dow", default: [], array: true
-    t.time "clock_in"
-    t.time "clock_out"
-    t.date "start_date"
-    t.date "end_date"
-    t.boolean "light_on"
-    t.bigint "venue_id"
     t.bigint "tender_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["tender_id"], name: "index_schedules_on_tender_id"
-    t.index ["venue_id"], name: "index_schedules_on_venue_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -126,5 +127,4 @@ ActiveRecord::Schema.define(version: 2018_05_23_161613) do
   add_foreign_key "regulars", "users", column: "customer_id"
   add_foreign_key "regulars", "users", column: "tender_id"
   add_foreign_key "schedules", "users", column: "tender_id"
-  add_foreign_key "schedules", "venues"
 end
