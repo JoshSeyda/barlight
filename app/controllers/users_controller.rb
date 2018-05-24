@@ -29,8 +29,7 @@ class UsersController < ApplicationController
       @default_location = Venue.find(2).venue_marker_data
       @user = User.find(params[:id])
       @markers = @user.get_locations
-      puts @user 
-      puts @markers 
+
     end
 
     def new

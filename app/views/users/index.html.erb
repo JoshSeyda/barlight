@@ -1,8 +1,7 @@
 <h1> User's Index Page </h1>
 <div class="calendar"></div>
 <div id="map"></div>
-<%= @markers %>
-    <script>
+<script>
       function initMap() {
 
         var nycda = new google.maps.LatLng(<%= @default_location[:latitude] %>, <%= @default_location[:longitude] %>);
