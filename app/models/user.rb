@@ -16,12 +16,12 @@ class User < ApplicationRecord
   # regular_tenders "names" the Regular join table for accessing through the tender association
   has_many :regular_tenders, foreign_key: :tender_id, class_name: "Regular" 
   # source: :customer matches with the belong_to :customer identification in the Regular model 
-  has_many :tenders, through: :regular_tenders, source: :customer
+  has_many :customers, through: :regular_tenders, source: :customer
 
   # regular_customers "names" the Regular join table for accessing through the customer association
   has_many :regular_customers, foreign_key: :customer_id, class_name: "Regular"    
   # source: :customer matches with the belong_to :customer identification in the Regular model   
-  has_many :customers, through: :regular_customers, source: :tender
+  has_many :tenders, through: :regular_customers, source: :tender
  
 
   def assign_default_role
