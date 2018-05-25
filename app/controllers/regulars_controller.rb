@@ -15,7 +15,8 @@ class RegularsController < ApplicationController
       redirect_to(user_regulars_path(current_user), alert: "Empty field!") and return  
     else  
       @parameter = params[:search].downcase  
-      @user_results = User.all.where("lower(handle) LIKE :search OR lower(first) LIKE :search OR lower(last) LIKE :search LIKE :search", search: "%#{@parameter}%")
+      @user_results = User.where("concat_ws(' ', lower(handle), lower(first), lower(last)) ILIKE ?", "%#{@parameter.squish}%")
+      # ("lower(handle) LIKE :search OR lower(first) LIKE :search OR lower(last) LIKE :search LIKE :search", search: "%#{@parameter}%")
       @venue_results = Venue.all.where("lower(title) LIKE :search", search: "%#{@parameter}%")
     end
   end
