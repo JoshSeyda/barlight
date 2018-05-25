@@ -7,6 +7,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_one :location, as: :locatable
+  accepts_nested_attributes_for :location, allow_destroy: true
   has_many :images, as: :imageable
 
   has_one :schedule
@@ -23,6 +24,7 @@ class User < ApplicationRecord
   # source: :customer matches with the belong_to :customer identification in the Regular model   
   has_many :tenders, through: :regular_customers, source: :tender
  
+  
 
   def assign_default_role
     self.add_role(:customer)

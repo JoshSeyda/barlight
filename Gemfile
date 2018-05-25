@@ -54,6 +54,7 @@ gem 'jquery-rails'
 gem 'bootstrap-sass'
 gem 'simple_form'
 gem 'ice_cube'
+gem 'pry'
 
 
 # Reduces boot times through caching; required in config/boot.rb
