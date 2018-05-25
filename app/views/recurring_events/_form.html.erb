@@ -1,7 +1,9 @@
 <%= simple_form_for @recurring_event, remote: true do |f| %>
   <div class="form-inputs">
     <%= f.input :title %>
-    <%= f.input :anchor, input_html: { class: "form-control input-sm" } %>
+    <%= f.input :anchor, input_html: { class: "form-control input-sm date-range-picker" } %>
+     <%= f.input_field :start, value: Date.today, class: 'form-control input-sm start_hidden' %>
+    <%= f.input_field :end, value: Date.today, class: 'form-control input-sm end_hidden' %>
     <%= f.input :frequency, as: :select, collection: RecurringEvent.frequencies.keys, input_html: { class: "form-control input-sm" } %>
     <%= f.input :color, as: :select, collection: [['Black','black'], ['Green','green'], ['Red','red']] %>
   </div>
