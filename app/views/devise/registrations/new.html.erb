@@ -46,16 +46,17 @@
   </div>
 
   <div class="field">
-  <%= f.fields_for :location do |f| %>
+  <%= f.fields_for :location do |location| %>
+  <!--<input type="text" name='address' placeholder="ex: 90 John St, New York, NY 10038"></input>-->
   <div>
-    <%= f.label :address %>
-    <%= f.text_field :address, placeholder: "ex: 90 John St, New York, NY 10038" %>
+    <%= location.label :address %>
+    <%= location.text_field :address, placeholder: "ex: 90 John St, New York, NY 10038" %>
   </div>
 <% end %>
 </div>
   <div>
-    <label for="role">Are you a Service Worker?</label>
-    <input type="checkbox" id="checkbox" name= 'user[role]' value="role">
+    <!--<label for="user[role]">Are you a Service Worker?</label>-->
+    <!--<input type="checkbox" id="checkbox" name= 'user[role]' value="user[role]">-->
   </div>
   <div class="actions">
   <button class="btn btn-lg btn-primary btn-block" type="submit">Sign Up</button>

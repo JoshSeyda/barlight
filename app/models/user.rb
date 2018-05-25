@@ -7,7 +7,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_one :location, as: :locatable
-  accepts_nested_attributes_for :location, :allow_destroy => true
+  accepts_nested_attributes_for :location, allow_destroy: true
   has_many :images, as: :imageable
 
   has_many :venues, through: :schedules 
