@@ -63,7 +63,11 @@
                             <li><%= bar.title %></li>
                           <% end %>
                         </ul>
-                        <button>Remove</button>
+                        <%= form_for(:regular, url: user_regulars_path(current_user), remote: true, id: "#{tender.id}-follow-button") do |f| %>
+         
+                            <%= f.submit "Follow", id:"#{tender.id}-button-button" %>
+                        
+                        <% end %>
                       </div>
                     </div>
                   </div>

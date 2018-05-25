@@ -1,10 +1,9 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
   def index
-    @users = User.all
     @user = current_user
-    @default_location = Venue.find(2).venue_marker_data
-    @markers = User.first.get_locations
+    @default_location = {latitude: current_user.location.latitude, longitude: current_user.location.longitude} 
+    @markers = current_user.get_locations
     # respond_to do |format|
     #   format.json {
     #     lat = params["lat"]

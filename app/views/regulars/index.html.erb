@@ -7,7 +7,7 @@
     <div class="panel-body">
       <div class="row">
         <% current_user.customers.each do |customer|%>
-          <div id= "customer-<%= customer.id %>" class="col-sm-4">
+          <div id="customer-<%= customer.id %>" class="col-sm-4">
             <div class="panel panel-default my_panel">
               <div class="panel-body">
                 <% if customer.images.any? %>
