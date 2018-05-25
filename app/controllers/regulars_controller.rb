@@ -15,9 +15,16 @@ class RegularsController < ApplicationController
       redirect_to(user_regulars_path(current_user), alert: "Empty field!") and return  
     else  
       @parameter = params[:search].downcase  
-      @user_results = User.where("concat_ws(' ', lower(handle), lower(first), lower(last)) ILIKE ?", "%#{@parameter.squish}%")
+      user_results = User.where("concat_ws(' ', lower(handle), lower(first), lower(last)) ILIKE ?", "%#{@parameter.squish}%")
+      @tender_results = user_results.map { |user| user if user.has_role?(:tender) }
       # ("lower(handle) LIKE :search OR lower(first) LIKE :search OR lower(last) LIKE :search LIKE :search", search: "%#{@parameter}%")
       @venue_results = Venue.all.where("lower(title) LIKE :search", search: "%#{@parameter}%")
+      if @tender_results.any? || @venue_results
+        @results = true 
+      else
+        @results = false
+      end
+      #redirect to regulars and render search partial 
     end
   end
 

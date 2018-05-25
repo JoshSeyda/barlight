@@ -1,0 +1,22 @@
+<h3>Search Result</h3>  
+
+<% if @results == true %>
+  <% if @tender_results.any? %>
+    <% @tender_results.each do |result| %>  
+      <%= result.first + " " + result.last %><br> 
+      <%= result.handle %><br>  
+    <% end %>
+  <% end %>
+
+  <% if @vender_results %>
+    <% @venue_results.each do |result| %>  
+      <h1><%= result.title %></h1> 
+      <% result.employees.each do |tender| %>
+        <%= tender.first + " " + tender.last %><br> 
+        <%= tender.handle %><br>  
+      <% end %>
+    <% end %>
+  <% end %>
+<% else %>
+  <h3>Nothing to Show!</h3> 
+<% end %>
