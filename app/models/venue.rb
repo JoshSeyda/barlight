@@ -9,11 +9,12 @@ class Venue < ApplicationRecord
     location = self.location
     {latitude: location.latitude, longitude: location.longitude, venue: self.title}
   end 
-  # def schedules
-  #   Schedule.joins([{recurring_events: :venue}, {events: :venue}])
-  #          .where(venues: {id: self.id})
-  # end
-  # SQLOutput:
-  # SELECT  "schedules".* FROM "schedules" INNER JOIN "recurring_events" ON "recurring_events"."schedule_id" = "schedules"."id" INNER JOIN "venues" ON "venues"."id" = "recurring_events"."venue_id" INNER JOIN "events" ON "events"."schedule_id" = "schedules"."id" INNER JOIN "venues" "venues_events" ON "venues_events"."id" = "events"."venue_id" WHERE "venues"."id" = $1 LIMIT $2  [["id", 1], ["LIMIT", 11]]
+
+  def employees
+    all_events = []       
+    Event.where(venue_id: self.id).each {|e| all_events.push(e) }
+    RecurringEvent.where(venue_id: self.id).each {|e| all_events.push(e) }
+    industry_workers = all_events.map { |event| event.server_schedule.user }.uniq
+  end
 
 end
