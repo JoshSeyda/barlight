@@ -1,25 +1,32 @@
 
-<h1>Hello <%= current_user.handle %></h1>
 
-  <div class="container w-75 p-3">
-    <div class="row w-100 p-3">
-    <% current_user.customers.each do |customer|%>
-      <div class="w-25 p-3">
-        <div class="card">
-          <% if customer.images.any? %>
-            <% profile_img = customer.images.first.url %>
-          <% else %>
-            <% profile_img = '/images/purple-lamp.png' %>
-          <% end %>
-          <img class=""card-img-top"" src="<%= profile_img %>">
-            
-          <div class="card-body">
-            <h5 class="card-title"><%= customer.handle %></h5>
-            <p class="card-text"><%= customer.first %></p>
-            <p class="card-text"><%= customer.last %></p>
+<div id="mainContainer" class="container">
+  <h1>Hello <%= current_user.handle %></h1>
+
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <div class="row">
+        <% current_user.customers.each do |customer|%>
+          <div id= "customer-<%= customer.id %>" class="col-sm-4">
+            <div class="panel panel-default my_panel">
+              <div class="panel-body">
+                <% if customer.images.any? %>
+                  <% profile_img = customer.images.first.url %>
+                <% else %>
+                  <% profile_img = '/images/purple-lamp.png' %>
+                <% end %>
+                <img class="img-responsive center-block" src="<%= profile_img %>">
+              </div>
+              <div class="panel-footer">
+                <h5 class="card-title"><%= customer.handle %></h5>
+                <p class="card-text"><%= customer.first %> <%= customer.last %></p>
+                <%= link_to "Unfollow", user_regular_path(current_user.id, customer.id), data: { confirm: "Are you sure?" }, method: :delete, remote: true, id: "delete-#{customer.id}" %>
+              </div>
+            </div>
           </div>
-        </div>
+        <% end %>
       </div>
-    <% end %>
     </div>
   </div>
+
+</div>

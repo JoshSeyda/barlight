@@ -1,0 +1,17 @@
+<div class="col-sm-4">
+  <div class="panel panel-default my_panel">
+    <div class="panel-body">
+      <% if shown_user.images.any? %>
+        <% profile_img = shown_user.images.first.url %>
+      <% else %>
+        <% profile_img = '/images/purple-lamp.png' %>
+      <% end %>
+      <img class="img-responsive center-block" src="<%= profile_img %>">
+    </div>
+    <div class="panel-footer">
+      <h5 class="card-title"><%= shown_user.handle %></h5>
+      <p class="card-text"><%= shown_user.first %> <%= shown_user.last %></p>
+      <button>Remove</button>
+    </div>
+  </div>
+</div>
