@@ -2,31 +2,78 @@
 
 <div id="mainContainer" class="container">
   <h1>Hello <%= current_user.handle %></h1>
-
-  <div class="panel panel-default">
-    <div class="panel-body">
-      <div class="row">
-        <% current_user.customers.each do |customer|%>
-          <div id="customer-<%= customer.id %>" class="col-sm-4">
-            <div class="panel panel-default my_panel">
-              <div class="panel-body">
-                <% if customer.images.any? %>
-                  <% profile_img = customer.images.first.url %>
-                <% else %>
-                  <% profile_img = '/images/purple-lamp.png' %>
-                <% end %>
-                <img class="img-responsive center-block" src="<%= profile_img %>">
-              </div>
-              <div class="panel-footer">
-                <h5 class="card-title"><%= customer.handle %></h5>
-                <p class="card-text"><%= customer.first %> <%= customer.last %></p>
-                <%= link_to "Unfollow", user_regular_path(current_user.id, customer.id), data: { confirm: "Are you sure?" }, method: :delete, remote: true, id: "delete-#{customer.id}" %>
-              </div>
+  <% if current_user.tenders.any? %>
+    <div id="mainContainer" class="container">
+      <h3>Following:</h3>
+      <div class="panel panel-default">
+          <div class="panel-body">
+            <div class="row">
+              <% current_user.tenders.each do |tender|%>
+                <div id="tender-<%= tender.id %>" class="col-sm-4">
+                  <div class="panel panel-default my_panel">
+                    <div class="panel-body">
+                      <% if tender.images.any? %>
+                        <% profile_img = tender.images.first.url %>
+                      <% else %>
+                        <% profile_img = '/images/purple-lamp.png' %>
+                      <% end %>
+                      <img class="img-responsive center-block" src="<%= profile_img %>">
+                    </div>
+                    <div class="panel-footer">
+                      <h5 class="card-title"><%= tender.handle %></h5>
+                      <p class="card-text"><%= tender.first %> <%= tender.last %></p>
+                      <%= form_for(:regular, url: user_regular_path(current_user.id, tender.id), method: :delete, remote: true, id: "delete-#{tender.id}", data: { confirm: "Are you sure?" }) do |f| %>
+                            <%= f.hidden_field :delete_customer, :value => false %>
+                            <%= f.submit "Unollow", id:"#{tender.id}-button-button" %>
+                        
+                        <% end %>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
             </div>
           </div>
-        <% end %>
-      </div>
+        </div>
     </div>
-  </div>
-
+  <% else %>
+    <h3>Follow Some PEOPLE!</h3>
+  <% end %>
+  <% if current_user.has_role?(:tender) %>
+    <div id="mainContainer" class="container">
+      <h3>Followers:</h3>
+      <% if current_user.customers.any? %>
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <div class="row">
+              <% current_user.customers.each do |customer|%>
+                <div id="customer-<%= customer.id %>" class="col-sm-4">
+                  <div class="panel panel-default my_panel">
+                    <div class="panel-body">
+                      <% if customer.images.any? %>
+                        <% profile_img = customer.images.first.url %>
+                      <% else %>
+                        <% profile_img = '/images/purple-lamp.png' %>
+                      <% end %>
+                      <img class="img-responsive center-block" src="<%= profile_img %>">
+                    </div>
+                    <div class="panel-footer">
+                      <h5 class="card-title"><%= customer.handle %></h5>
+                      <p class="card-text"><%= customer.first %> <%= customer.last %></p>
+                      <%= form_for(:regular, url: user_regular_path(current_user.id, customer.id), method: :delete, remote: true, id: "delete-#{customer.id}", data: { confirm: "Are you sure?" }) do |f| %>
+                            <%= f.hidden_field :delete_customer, :value => true %>
+                            <%= f.submit "Unollow", id:"#{customer.id}-button-button" %>
+                        
+                        <% end %>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      <% else %>
+        <h3>Get some regulars!!</h3>
+      <% end %>
+    </div>
+  <% end %>
 </div>
