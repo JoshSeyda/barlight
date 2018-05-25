@@ -39,6 +39,7 @@ class UsersController < ApplicationController
     end
 
     def create
+      @role = params[:role]
       @user = User.create(user_params)
         if params[:roles] == yes
          @user.add_role :tender

@@ -55,6 +55,7 @@ gem 'bootstrap-sass'
 gem 'simple_form'
 gem 'ice_cube'
 gem 'pry'
+gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
 
 
 # Reduces boot times through caching; required in config/boot.rb

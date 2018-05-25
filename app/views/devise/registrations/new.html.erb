@@ -14,7 +14,7 @@
 
 <%= form_for(setup_user(resource), as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
-
+<%#= f.fields_for :user do | ff|%>
   <div class="field">
     <%= f.label :handle %><br />
     <%= f.text_field :handle %>
@@ -44,6 +44,7 @@
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
+  <%# end %>
 
   <!--<div class="field">
   <%#= f.fields_for :location do |location| %>
@@ -55,12 +56,15 @@
 <%# end %>
 </div>
   <div>
-    <%= f.label :user_role, 'Are you a service worker?', :value => 'role' %>
-    <%= f.label "yes" %>
-    <%= f.radio_button :roles, "yes" %>
-    <%= f.label "no" %>
-    <%= f.radio_button :roles, "no" %>
+  <%#= f.fields_for :users_role do | ff |%>
+    <%#= ff.label :users_role, 'Are you a service worker?', :value => 'role' %>
+    <%#= ff.label "yes" %>
+    <%#= ff.radio_button :roles, "yes" %>
+    <%#= ff.label "no" %>
+    <%#= ff.radio_button :roles, "no" %>
+    <%#end%> 
     
+
     <!--<input type="checkbox" id="checkbox" name= 'user[role]' value="user[role]">-->
   </div>
   <div class="actions">
