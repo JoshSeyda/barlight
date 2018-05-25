@@ -15,6 +15,15 @@ class Schedule < ApplicationRecord
     events + recurring_events
   end
 
+  def bars_worked
+    events = []
+    recurring_events = []
+    self.events.each{ |event| event.venue }
+    self.recurring_events.each{ |recurring_event| event.venue } 
+    venues = (events + recurring_events).uniq
+    venues.map{ |bar| bar.title }  
+  end 
+
   def venues
     shifts = self.shifts
     array_of_venue_info = []

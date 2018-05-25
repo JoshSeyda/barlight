@@ -1,0 +1,83 @@
+<div id="mainContainer" class="container">
+  <h3>Search Result</h3>  
+  <% if @results == true %>
+    <% if @tender_results.any? %>
+      <div id="mainContainer" class="container">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <div class="row">
+              <% @tender_results.each do |result| %> 
+                <div class="col-sm-4">
+                  <div class="panel panel-default my_panel">
+                    <div class="panel-body">
+                      <% if result.images.any? %>
+                        <% profile_img = result.images.first.url %>
+                      <% else %>
+                        <% profile_img = '/images/purple-lamp.png' %>
+                      <% end %>
+                      <img class="img-responsive center-block" src="<%= profile_img %>">
+                    </div>
+                    <div class="panel-footer">
+                      <h5 class="card-title"><%= result.handle %></h5>
+                      <p class="card-text"><%= result.first %> <%= result.last %></p>
+                      <ul class="card-text">
+                        <% result.bars_worked.each do |bar| %>
+                          <li><%= bar.title %></li>
+                        <% end %>
+                      </ul>
+                      <button>Remove</button>
+                    </div>
+                  </div>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+
+    <% if @venue_results %>
+      <% @venue_results.each do |result| %>
+        <div id="mainContainer" class="container">  
+          <h1><%= result.title %></h1>
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <div class="row"> 
+                <% result.employees.each do |tender| %>
+
+                  <div class="col-sm-4">
+                    <div class="panel panel-default my_panel">
+                      <div class="panel-body">
+                        <% if tender.images.any? %>
+                          <% profile_img = tender.images.first.url %>
+                        <% else %>
+                          <% profile_img = '/images/purple-lamp.png' %>
+                        <% end %>
+                        <img class="img-responsive center-block" src="<%= profile_img %>">
+                      </div>
+                      <div class="panel-footer">
+                        <h5 class="card-title"><%= tender.handle %></h5>
+                        <p class="card-text"><%= tender.first %> <%= tender.last %></p>
+                        <ul class="card-text">
+                          <% tender.bars_worked.each do |bar| %>
+                            <li><%= bar.title %></li>
+                          <% end %>
+                        </ul>
+                        <button>Remove</button>
+                      </div>
+                    </div>
+                  </div>
+
+
+                <% end %>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  <% else %>
+    <h3>Nothing to Show!</h3> 
+  <% end %>
+</div>

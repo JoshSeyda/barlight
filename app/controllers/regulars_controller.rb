@@ -19,6 +19,8 @@ class RegularsController < ApplicationController
       @tender_results = user_results.map { |user| user if user.has_role?(:tender) }
       # ("lower(handle) LIKE :search OR lower(first) LIKE :search OR lower(last) LIKE :search LIKE :search", search: "%#{@parameter}%")
       @venue_results = Venue.all.where("lower(title) LIKE :search", search: "%#{@parameter}%")
+      puts @venue_results
+      puts "*************"
       if @tender_results.any? || @venue_results
         @results = true 
       else
