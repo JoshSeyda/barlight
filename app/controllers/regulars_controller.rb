@@ -45,7 +45,7 @@ class RegularsController < ApplicationController
   # end
 
     def destroy
-      @regular = Regular.where(tender_id: current_user.id, customer_id: params[:id])
+      @regular = Regular.where(tender_id: current_user.id, customer_id: params[:id]).first
       @regular.destroy
       respond_to do |format|
         format.html {redirect_to user_regulars_path(current_user)}
