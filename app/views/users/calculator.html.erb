@@ -1,0 +1,142 @@
+<div class="background">
+<div class="card" style="width: 50rem;">
+  <div class="card-body">
+    <div class="container" align="center">
+            <h1>Bar Tip Calculator</h1>
+    <div class="container">
+        <div id="calculator">  
+            <div id="wrap">
+                 <div class="left">   
+                    <p>Bill Amount :</p> 
+                </div>
+                <div id="border" class="right">
+                    <input class="clear-value" id="billAmt" type="text" placeholder="Bill Amount" />
+                </div>
+            </div>
+   
+            <div id="wrap">
+                <div class="left">
+                    <p>Percentage of Tip :</p>
+            </div>
+                <div class="right">
+                    <input class="clear-value" id="tipPer" type="text" placeholder="Tip % " />
+                </div>
+
+            </div>
+
+            <div id="wrap">
+                <div class="left">
+                    <p>Split :</p> 
+                </div>
+                <div class="right">
+                    <input class="clear-value" id="peopleAmt" type="text" placeholder="Number of People" />
+                </div>
+            </div>
+
+                 <br>
+
+                <h3>Buyback Tip:</h3> 
+                
+            <div id="wrap">
+                <div class="left">
+                    <p>What is the cost of per drink?  </p>
+                </div>
+                <div class="right">
+                    <input class="clear-value" id="drinkCost" type="text" placeholder="Cost Per Drink"></p>
+                </div>
+            </div>
+            <div id="wrap">
+                <div class="left">
+                        <p>How many Free Drinks did you received? </p>
+                </div>
+                <div class="right">
+                    <input class="clear-value" id="drinkRd" type="text" placeholder="Drinks Received"></p>
+                </div>
+            </div>
+             <div class="btn-group"></div>
+            <button type="button" id="clear" class="btn btn-space btn-danger">Clear</button> 
+            <button type="button" id="calculate" class="btn btn-success">Calculate</button>
+             </div> 
+            </div>
+        <!--calculator end-->
+            <br>
+            <div class="container">
+                <div id="wrap">
+                    <div class="left">
+                            <p>Total Bill with Tip and Buyback Amount : </p>  
+                    </div>
+                    <div class="right">
+                            <p id="tBill" class="clear-me"><h6></h6></p>
+                    </div>
+                </div>
+                <div id="wrap">
+                    <div class="left">
+                        <p>Bill per Person with Tip and Buyback : </p> 
+                    </div>
+                    <div class="right">
+                        <p id="bbPP" class="clear-me"></p>
+                    </div>  
+                </div>
+                 <div id="wrap"> 
+                    <div class="left">
+                        <p>Bill per Person without Tip and Buyback : </p>
+                    </div> 
+                    <div class="right">
+                         <p id="bPP" class="clear-me"></p>
+                    </div>
+                </div>
+                <div id="wrap">
+                    <div class="left">
+                        <p>Tip Amount :</p> 
+                    </div>
+                    <div class="right">
+                        <p id="tAmt" class="clear-me"></p>
+                    </div>
+                </div>
+                <div id="wrap"> 
+                    <div class="left"> 
+                        <p>Tip per Person : </p>
+                    </div>
+                    <div class="right">
+                        <p id="tPP" class="clear-me"></p>
+                    </div>
+                </div>
+                <div id="wrap">
+                    <div class="left">
+                        <p>Buyback Tip : </p> 
+                    </div>
+                    <div class="right">
+                        <p id="bbC" class="clear-me"></p>
+                    </div>
+                </div>
+                <div id="wrap">
+                    <div class="left">
+                        <p>Buyback Tip per Person : </p> 
+                    </div>
+                    <div class="right">
+                        <p id="splitBBack" class="clear-me"></p>
+                    </div>
+                </div>
+            </div>
+            <!--totalTip end-->
+
+    </div>
+
+</div>
+</div>
+
+
+
+<div>
+    <!-- <img src="iphoneicon 10.jpg" alt="iphone-10"> -->
+
+    
+    <!--container end-->
+        
+    </div>
+</div>
+ <script type="text/javascript" src="calculator.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</body>
+</html>
