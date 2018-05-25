@@ -20,9 +20,7 @@
             </div>
             <div class="col-sm-4 offset-md-1 py-4">
               <ul class="list-unstyled">
-                <% if user_signed_in? && current_user.has_role? :tender %>
                   <li><a href="/users/<%= :id %>/regulars" class="text-white">Regulars</a></li>
-                <% end %>
                 <% if user_signed_in? %>
                   <li>
                   <%= link_to 'Logout', destroy_user_session_path, method: :delete, authenticity_token: true %>        
