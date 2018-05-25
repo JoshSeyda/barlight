@@ -1,0 +1,5 @@
+$("#<%= @following.tender_id %>-follow-button").on("ajax:success", changeText())
+
+function changeText() {
+  $("#<%= @following.tender_id %>-button-button").val("Added!")
+}

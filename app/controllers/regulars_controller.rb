@@ -35,10 +35,20 @@ class RegularsController < ApplicationController
   # def edit
   # end
 
-  # def create
-  #   @user = User.new(user_params)
-  #   @user.save
-  # end
+  def create
+    customer = User.find(current_user.id)
+    tender = User.find(params[:id])
+    @following = Regular.create(tender_id: tender.id, customer_id: customer.id)
+    if @following.save
+      # Handle a successful creation
+      respond_to do |format|
+        format.html { redirect_to user_regulars_path(current_user.id)}
+        format.js
+      end
+    else
+      render 'search'
+    end
+  end
 
   # def update
   #   @user.update(user_params)
