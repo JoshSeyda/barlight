@@ -10,15 +10,16 @@
   </head>
 
   <body>
-    <!-- devise stuff: -->
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-    <div class='container'>
-      <%= render 'shared/calendar' %>
-      <%= yield %>
-      <div id='remote_container'></div>
+    <div id="">
+      <!-- devise stuff: -->
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+      <div class='container'>
+        <%= render 'shared/calendar' %>
+        <%= yield %>
+        <div id='remote_container'></div>
+      </div>
     </div>
-    <%= render 'shared/run_map' %>
     <script src=<%="https://maps.googleapis.com/maps/api/js?key=#{ENV['MAPS_API_KEY']}&callback=initMap"%> async defer></script>
   </body>
 </html>
