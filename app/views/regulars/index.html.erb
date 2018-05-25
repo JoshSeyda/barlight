@@ -1,0 +1,25 @@
+
+<h1>Hello <%= current_user.handle %></h1>
+
+  <div class="container w-75 p-3">
+    <div class="row w-100 p-3">
+    <% current_user.customers.each do |customer|%>
+      <div class="w-25 p-3">
+        <div class="card">
+          <% if customer.images.any? %>
+            <% profile_img = customer.images.first.url %>
+          <% else %>
+            <% profile_img = '/images/purple-lamp.png' %>
+          <% end %>
+          <img class=""card-img-top"" src="<%= profile_img %>">
+            
+          <div class="card-body">
+            <h5 class="card-title"><%= customer.handle %></h5>
+            <p class="card-text"><%= customer.first %></p>
+            <p class="card-text"><%= customer.last %></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    </div>
+  </div>
