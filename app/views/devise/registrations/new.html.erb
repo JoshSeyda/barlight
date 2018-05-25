@@ -45,17 +45,22 @@
     <%= f.password_field :password_confirmation, autocomplete: "off" %>
   </div>
 
-  <div class="field">
-  <%= f.fields_for :location do |location| %>
+  <!--<div class="field">
+  <%#= f.fields_for :location do |location| %>
   <!--<input type="text" name='address' placeholder="ex: 90 John St, New York, NY 10038"></input>-->
-  <div>
-    <%= location.label :address %>
-    <%= location.text_field :address, placeholder: "ex: 90 John St, New York, NY 10038" %>
-  </div>
-<% end %>
+  <!--<div>
+    <%#= location.label :address %>
+    <%#= location.text_field :address, placeholder: "ex: 90 John St, New York, NY 10038" %>
+  </div>-->
+<%# end %>
 </div>
   <div>
-    <!--<label for="user[role]">Are you a Service Worker?</label>-->
+    <%= f.label :user_role, 'Are you a service worker?', :value => 'role' %>
+    <%= f.label "yes" %>
+    <%= f.radio_button :roles, "yes" %>
+    <%= f.label "no" %>
+    <%= f.radio_button :roles, "no" %>
+    
     <!--<input type="checkbox" id="checkbox" name= 'user[role]' value="user[role]">-->
   </div>
   <div class="actions">

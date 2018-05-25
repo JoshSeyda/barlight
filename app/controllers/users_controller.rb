@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  before_action :configure_permitted_parameters, if: :devise_controller?
   def index
     @users = User.all
     #Alex Stuff:
@@ -29,13 +28,10 @@ class UsersController < ApplicationController
 
     def create
       @user = User.create(user_params)
-      puts params
-      @user.build_location(address: "90 John St, New York, NY, 10038"]).save
-      if params[:role] == true
-        @user.add_role :tender
-        @user.save
-      end
-      @user.save
+        if params[:roles] == yes
+         @user.add_role :tender
+          @user.save
+         end
     end
 
     def update
@@ -51,10 +47,6 @@ class UsersController < ApplicationController
         @user = User.find(params[:id])
       end
       def user_params
-        # location_params = (params[:user] || {})[:location_attributes].keys
         params.require(:user).permit(:first, :last, :handle, :email, :password)
-      end
-      def configure_permitted_parameters
-        devise_parameter_sanitizer.permit(:sign_up, keys: [:first, :last, :handle, {location_attributes: [:address]}])
       end
 end

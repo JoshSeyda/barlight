@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   rolify
   before_create :assign_default_role
+  after_create :assign_default_location
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -8,6 +9,7 @@ class User < ApplicationRecord
 
   has_one :location, as: :locatable
   accepts_nested_attributes_for :location, allow_destroy: true
+
   has_many :images, as: :imageable
 
   has_many :venues, through: :schedules 
@@ -23,7 +25,9 @@ class User < ApplicationRecord
   # source: :customer matches with the belong_to :customer identification in the Regular model   
   has_many :customers, through: :regular_customers, source: :tender
  
-  
+  def assign_default_location
+    self.build_location(address: "90 John St, New York, NY, 10038").save
+  end
 
   def assign_default_role
     self.add_role(:customer)

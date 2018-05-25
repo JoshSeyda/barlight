@@ -7,3 +7,6 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.create(email: 'test@email.com' , password: 'password', handle: 'turnstile', first: 'turn', last: 'stile')
+@alex = User.create(email: 'alex@email.com' , password: 'password', handle: 'babiesinspace', first: 'babies', last: 'inspace')
+Role.create!(name: 'tender')
+@alex.add_role :tender
