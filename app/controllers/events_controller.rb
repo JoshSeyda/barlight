@@ -1,8 +1,9 @@
 class EventsController < ApplicationController
+  before_action :authenticate_user!
     before_action :set_event, only: [:show, :edit, :update, :destroy]
   
     def index
-      @events = Event.where(start: params[:start]..params[:end])
+      @events = Event.where(schedule_id: current_user.schedule.id, start: params[:start]..params[:end]) 
     end
   
     def show
