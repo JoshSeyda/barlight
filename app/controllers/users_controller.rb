@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!
   def index
+    @user = current_user
     @default_location = {latitude: current_user.location.latitude, longitude: current_user.location.longitude} 
     @markers = current_user.get_locations
     # respond_to do |format|
