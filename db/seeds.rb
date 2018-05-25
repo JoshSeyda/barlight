@@ -55,6 +55,9 @@ end
     @user.schedule.events.create(title: @venue.title, start: DateTime.new(2018, 05, 25, @rand), end: DateTime.new(2018, 05, 25, @rand+6), color: ['red', 'black', 'green'].sample, light_on: [true, false].sample, venue_id: @venue.id)
 end
 
-
-
+100.times do
+    @user = User.with_role(:tender).sample
+    @customer = User.without_role(:tender).sample
+    Regular.create(tender_id: @user.id, customer_id: @customer.id)
+end
 
