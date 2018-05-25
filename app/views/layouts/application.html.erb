@@ -4,13 +4,10 @@
     <title>Barlight</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
-    
   </head>
-
   <body>
   <header>
       <div class="collapse bg-dark" id="navbarHeader">
@@ -22,13 +19,10 @@
               <p class="text-muted">Customers - "Because you're sick of reading Buzzfeed articles on 'Why Your Bartender Hates You'"</p>
             </div>
             <div class="col-sm-4 offset-md-1 py-4">
-              <!--<h4 class="text-white">Regulars</h4>-->
               <ul class="list-unstyled">
-                <% if current_user.has_role? :tender %>
+                <% if user_signed_in? && current_user.has_role? :tender %>
                   <li><a href="/users/<%= :id %>/regulars" class="text-white">Regulars</a></li>
                 <% end %>
-                <!--<li><a href="/events" class="text-white">Like on Facebook</a></li>
-                <li><a href="#" class="text-white">Email me</a></li>-->
                 <% if user_signed_in? %>
                   <li>
                   <%= link_to 'Logout', destroy_user_session_path, method: :delete, authenticity_token: true %>        
