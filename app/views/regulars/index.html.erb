@@ -7,7 +7,7 @@
     <div class="panel-body">
       <div class="row">
         <% current_user.customers.each do |customer|%>
-          <div class="col-sm-4">
+          <div id= "customer-<%= customer.id %>" class="col-sm-4">
             <div class="panel panel-default my_panel">
               <div class="panel-body">
                 <% if customer.images.any? %>
@@ -20,7 +20,7 @@
               <div class="panel-footer">
                 <h5 class="card-title"><%= customer.handle %></h5>
                 <p class="card-text"><%= customer.first %> <%= customer.last %></p>
-                <button>Remove</button>
+                <%= link_to "Unfollow", user_regular_path(current_user.id, customer.id), data: { confirm: "Are you sure?" }, method: :delete, remote: true, id: "delete-#{customer.id}" %>
               </div>
             </div>
           </div>
@@ -28,5 +28,5 @@
       </div>
     </div>
   </div>
-  
+
 </div>
