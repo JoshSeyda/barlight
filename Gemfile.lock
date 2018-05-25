@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/stympy/faker.git
+  revision: ed0b9e69a64ce992877d43c080e6abec3c0af0f9
+  branch: master
+  specs:
+    faker (1.8.7)
+      i18n (>= 0.7)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -305,6 +313,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   daterangepicker-rails
   devise
+  faker!
   figaro
   file_validators
   fog-aws
