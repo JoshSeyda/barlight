@@ -1,9 +1,12 @@
 class RegularsController < ApplicationController
+  before_action :authenticate_user!
+  
   def index
-    if current_user.has_role?(:tender)
-      @customers = current_user.customers
+    @user = current_user
+    if @user.has_role?(:tender)
+      @customers = @user.customers
     end
-    @tenders = current_user.tenders
+    @tenders = @user.tenders
   end
     
   def show
