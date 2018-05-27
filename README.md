@@ -3,9 +3,8 @@
 >Barlight is the first social medial platform to put service industry professionals first. It is a place for Bartenders, Cooks, Servers, and Baristas to indicate their workplace availability to their regular customers, in hopes of reinforcing the existing culture of mutual reciprocity in the service industry.
 
 ---
-<!-- ![GitHub issue age](https://img.shields.io/github/issues/detail/age/badges/shields/979.svg)
-![GitHub issue last update](https://img.shields.io/github/issues/detail/last-update/badges/shields/979.svg)
-![GitHub closed pull requests](https://img.shields.io/github/issues-pr-closed/cdnjs/cdnjs.svg) -->
+![GitHub issue age](https://img.shields.io/badge/created%20on-2018--05--21-brightgreen.svg)
+![GitHub closed pull requests](https://img.shields.io/badge/closed%20pull%20requests-20-blue.svg) 
 ![CocoaPods](https://img.shields.io/cocoapods/l/AFNetworking.svg)
 ---
 #### Bartenders - "Let your regulars know when you're working, and if now's 'A Good Time'"
