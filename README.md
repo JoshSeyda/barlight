@@ -1,15 +1,16 @@
 # [Barlight](https://barlight.herokuapp.com)
 ![Barlight](https://github.com/joshseyda/barlight/blob/master/public/images/purple-lamp.png)
->Bartenders - "Let your regulars know when you're working, and if now's 'A Good Time'"
+>Barlight is the first social medial platform to put service industry professionals first. It is a place for Bartenders, Cooks, Servers, and Baristas to indicate their workplace availability to their regular customers, in hopes of reinforcing the existing culture of mutual reciprocity in the service industry.
 
->Customers - "Because you're sick of reading Buzzfeed articles on 'Why Your Bartender Hates You'"
 ---
 <!-- ![GitHub issue age](https://img.shields.io/github/issues/detail/age/badges/shields/979.svg)
 ![GitHub issue last update](https://img.shields.io/github/issues/detail/last-update/badges/shields/979.svg)
 ![GitHub closed pull requests](https://img.shields.io/github/issues-pr-closed/cdnjs/cdnjs.svg) -->
 ![CocoaPods](https://img.shields.io/cocoapods/l/AFNetworking.svg)
 ---
-Barlight is the first social medial platform to put service industry professionals first. It is a place for Bartenders, Cooks, Servers, and Baristas to indicate their workplace availability to their regular customers, in hopes of reinforcing the existing culture of mutual reciprocity in the service industry.
+#### Bartenders - "Let your regulars know when you're working, and if now's 'A Good Time'"
+
+#### Customers - "Because you're sick of reading Buzzfeed articles on 'Why Your Bartender Hates You'"
 ---
 ## Table of Contents
 
@@ -17,22 +18,36 @@ Barlight is the first social medial platform to put service industry professiona
 - [Goals](#goals)
 - [Components](#components)
 	- [Technologies](#technologies)
-- [Dependencies](#dependencies)
-	- [Configuration](#configuration)
-- [Contributors](#contributors)
 - [License](#license)
 ---
 ## Inspiration
 
+Our team is made up of two ex-service industry workers and one non-service industry worker. We have taken our shared experiences and used them to craft a context for 'industry' folks to take center stage and facilitate their customer relationships in a meaningful and fullfilling way. Gone are the selfies in empty jobs posted accross facebook and Instagram, trying to bring your friends and close customers in. Now with the ease of flipping a light switch you can tell your community that you are around, and you want visitors, no posturing necessary. 
+
+## Status
+
+We are currently preparing for initial release of our MVP page, with essential location, scheduling, authentication and image storage features.
+
 ## Goals
+
+Ultimately we are working towards a gamified, multi-tier, scoped experience building out from the service worker as both the content creator and connection mediator. Their customers, can follow them, and depending on their interactions, gain higher degrees of connection and access on the platform. Venues, as of yet, are only associated locations, but we will be building out their accounts and features. Eventually service workers will be able to leave reviews about customers and venues, as well as post status updates and scoped events. Venues will be able to post job listings and recieve curated applications inside the network. Eventually, Barlight will be positioned as an optimized solution for industry specific advertising and networking. 
+
 
 ## Components
 
+1. User accounts and tiered access
+2. Geolocation 
+3. Schedule management 
+4. Image storage 
+5. Custom calculator for industry specific ctip calculations, customer side
+
+
 ### Technologies
 
-## Dependencies
-
-### Configuration
+* Devise for user authentication
+* Geolocator and Google Maps API for location management and display
+* FullCalendar for schedule rendering and tracking
+* Amazon S3 Cloud storage for user uploaded images
 
 ## License
 MIT License
