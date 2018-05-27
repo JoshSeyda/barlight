@@ -61,16 +61,15 @@ end
     Regular.create(tender_id: @user.id, customer_id: @customer.id)
 end
 
-@alex = User.find(2)
-Schedule.create(user_id: @alex.id) 
-15.times do
-    @user = User.with_role(:tender).sample
-    @venue = Venue.find(1+rand(10))
-    @rand =  1+rand(14)
-    @rand2 = 1+rand(29)
-    @user.schedule.events.create(title: @venue.title, start: DateTime.new(2018, 05, @rand2, @rand), end: DateTime.new(2018, 05, @rand2, @rand+6), color: ['red', 'black', 'green'].sample, light_on: [true, false].sample, venue_id: @venue.id)
-end
-30.times do
-    @customer = User.without_role(:tender).sample
-    Regular.create(tender_id: @alex.id, customer_id: @customer.id)
-end
+# Schedule.create(user_id: @alex.id) 
+# 15.times do
+#     @user = User.with_role(:tender).sample
+#     @venue = Venue.find(1+rand(10))
+#     @rand =  1+rand(14)
+#     @rand2 = 1+rand(29)
+#     @user.schedule.events.create(title: @venue.title, start: DateTime.new(2018, 05, @rand2, @rand), end: DateTime.new(2018, 05, @rand2, @rand+6), color: ['red', 'black', 'green'].sample, light_on: [true, false].sample, venue_id: @venue.id)
+# end
+# 30.times do
+#     @customer = User.without_role(:tender).sample
+#     Regular.create(tender_id: @alex.id, customer_id: @customer.id)
+# end
