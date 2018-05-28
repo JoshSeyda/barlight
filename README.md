@@ -51,7 +51,7 @@ Ultimately we are working towards a gamified, multi-tier, scoped experience buil
 ## License
 MIT License
 
-Copyright (c) [2018] [Alex Cooper, Caroline Russel, Josh Seyda]
+Copyright (c) [2018] [Alex Cooper, Caroline Russell, Josh Seyda]
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
