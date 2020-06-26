@@ -1,4 +1,4 @@
-# [Barlight](https://barlight.herokuapp.com)
+# Barlight
 ![Barlight](https://github.com/joshseyda/barlight/blob/master/public/images/purple-lamp.png)
 >Barlight is the first social medial platform to put service industry professionals first. It is a place for Bartenders, Cooks, Servers, and Baristas to indicate their workplace availability to their regular customers, in hopes of reinforcing the existing culture of mutual reciprocity in the service industry.
 
